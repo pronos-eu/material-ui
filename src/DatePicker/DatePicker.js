@@ -71,6 +71,10 @@ class DatePicker extends Component {
      */
     hideCalendarDate: PropTypes.bool,
     /**
+     * Initial date to show on calendar, by default it's today
+     */
+    initialDate: PropTypes.object,
+    /**
      * Locale used for formatting the `DatePicker` date strings. Other than for 'en-US', you
      * must provide a `DateTimeFormat` that supports the chosen `locale`.
      */
@@ -142,7 +146,7 @@ class DatePicker extends Component {
      * This object should contain methods needed to build the calendar system.
      *
      * Useful for building a custom calendar system. Refer to the
-     * [source code](https://github.com/callemall/material-ui/blob/master/src/DatePicker/dateUtils.js)
+     * [source code](https://github.com/mui-org/material-ui/blob/v0.x/src/DatePicker/dateUtils.js)
      * and an [example implementation](https://github.com/alitaheri/material-ui-persian-date-picker-utils)
      * for more information.
      */
@@ -285,6 +289,7 @@ class DatePicker extends Component {
       disableYearSelection,
       firstDayOfWeek,
       formatDate: formatDateProp,
+      initialDate,
       locale,
       maxDate,
       minDate,
@@ -324,7 +329,7 @@ class DatePicker extends Component {
           containerStyle={dialogContainerStyle}
           disableYearSelection={disableYearSelection}
           firstDayOfWeek={firstDayOfWeek}
-          initialDate={this.state.dialogDate}
+          initialDate={initialDate || this.state.dialogDate}
           locale={locale}
           maxDate={maxDate}
           minDate={minDate}
